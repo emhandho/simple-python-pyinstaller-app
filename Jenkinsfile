@@ -15,13 +15,13 @@ node {
       }
     }
   }
-  // stage ('Deliver') {
-  //   try {
-  //     docker.image('cdrx/pyinstaller-linux:python2').inside {
-  //       sh 'pyinstaller --onefile sources/add2vals.py'
-  //     }
-  //   } finally {
-  //     archiveArtifacts 'dist/add2vals'
-  //   }
-  // }
+  stage ('Deliver') {
+    try {
+      docker.image('cdrx/pyinstaller-linux:python2').inside {
+        sh 'pyinstaller --onefile sources/add2vals.py'
+      }
+    } finally {
+      archiveArtifacts 'dist/add2vals'
+    }
+  }
 }
