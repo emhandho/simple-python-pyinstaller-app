@@ -5,10 +5,11 @@ pipeline {
             agent {
                 docker {
                     image 'python:2-alpine'
+                    args '-u root'
                 }
             }
             steps {
-                sh 'addgroup --gid 1000 pyi && addgroup --uid 1000 --gid pyi'
+                sh 'sudo addgroup --gid 1000 pyi && addgroup --uid 1000 --gid pyi'
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py'
             }
         }
