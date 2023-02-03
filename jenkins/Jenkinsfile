@@ -30,6 +30,7 @@ pipeline {
             agent {
                 docker {
                     image 'cdrx/pyinstaller-linux:python3'
+                    args '-c groupadd --gid 1000 pyi && useradd --uid 1000 --gid pyi'
                 }
             }
             steps {
