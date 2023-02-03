@@ -8,6 +8,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'groupadd --gid 1000 pyi && useradd --uid 1000 --gid pyi'
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py'
             }
         }
@@ -30,7 +31,6 @@ pipeline {
             agent {
                 docker {
                     image 'cdrx/pyinstaller-linux:python3'
-                    args 'groupadd --gid 1000 pyi && useradd --uid 1000 --gid pyi'
                 }
             }
             steps {
