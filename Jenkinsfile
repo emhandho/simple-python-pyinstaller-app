@@ -17,7 +17,7 @@ node {
   }
   stage ('Deliver') {
     try {
-      docker.image('cdrx/pyinstaller-linux:python2').inside {
+      docker.image('cdrx/pyinstaller-alpine:latest').inside {
         sh 'pyinstaller --onefile sources/add2vals.py'
         sh 'sleep 5m'
       }
