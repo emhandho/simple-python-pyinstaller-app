@@ -19,10 +19,10 @@ node {
     try {
       docker.image('cdrx/pyinstaller-linux:python2').inside {
         sh 'pyinstaller --onefile sources/add2vals.py'
+        sh 'ls dist/'
       }
     } finally {
-      sh 'ls dist/'
-      archiveArtifacts 'dist/add2vals.exe'
+      archiveArtifacts 'dist/add2vals'
     }
   }
 }
