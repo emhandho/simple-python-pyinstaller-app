@@ -19,7 +19,6 @@ node {
     try {
       docker.image('six8/pyinstaller-alpine:latest').inside {
         sh 'pyinstaller --onefile sources/add2vals.py'
-        sh 'sleep 5m'
       }
     } finally {
       archiveArtifacts 'sources/dist/add2vals'
