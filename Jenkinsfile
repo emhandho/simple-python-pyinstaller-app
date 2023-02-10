@@ -22,7 +22,7 @@ node {
       }
     } finally {
       sh 'ls dist/'
-      archiveArtifacts 'dist/add2vals'
+      archiveArtifacts 'dist/add2vals.exe'
     }
   }
 }
