@@ -21,6 +21,7 @@ node {
         sh 'pyinstaller --onefile sources/add2vals.py'
       }
     } finally {
+      sh 'ls dist/'
       archiveArtifacts 'dist/add2vals'
     }
   }
