@@ -17,11 +17,11 @@ node {
   }
   stage ('Deliver') {
     try {
-      docker.image('six8/pyinstaller-alpine:latest').inside {
+      docker.image('cdrx/pyinstaller-linux:python2').inside {
         sh 'pyinstaller --onefile sources/add2vals.py'
       }
     } finally {
-      archiveArtifacts 'sources/dist/add2vals'
+      archiveArtifacts 'dist/add2vals'
     }
   }
 }
